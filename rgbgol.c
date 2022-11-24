@@ -655,11 +655,6 @@ void display_cells(uint rows, uint cols, cell_t cells[rows][cols]) {
     /* set cursor to top left */
     printf("\033[0;0H");
 
-    /* Hide cursor */
-    printf("\e[?25l");
-
-    /* Print screen  */
-    fflush(stdout);
 }
 
 void int_handler(int sig) {
@@ -686,6 +681,9 @@ int main()
             cells[i][j].s_next = DEAD;
         }
     }
+
+    /* Hide cursor */
+    printf("\e[?25l");
 
     signal(SIGINT, int_handler);
     while (1) {
