@@ -651,6 +651,11 @@ void display_cells(uint rows, uint cols, cell_t cells[rows][cols]) {
             fprintf(stdout, " ");
         }
     }
+    for (uint i = rs; i < ws.ws_row; ++i){
+        for (uint j = 0; j < ws.ws_col; ++j){
+            fprintf(stdout, " ");
+        }
+    }
 
     /* set cursor to top left */
     printf("\033[0;0H");
